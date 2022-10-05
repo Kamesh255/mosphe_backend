@@ -7,9 +7,9 @@ const router = express.Router();
 router.get('', (req, res) => {
     res.send('Hello World');
 })
-router.post('/register', registerUser);
-router.post('/login', loginUser);
-router.get('/get-data', organizationUser, organizationData);
+router.post('register', registerUser);
+router.post('login', loginUser);
+router.get('get-data', organizationUser, organizationData);
 
 
 export default router
