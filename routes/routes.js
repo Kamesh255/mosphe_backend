@@ -8,4 +8,5 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.get('/get-data', organizationUser, organizationData);
 
+
 export default router
