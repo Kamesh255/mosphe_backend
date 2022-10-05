@@ -21,6 +21,6 @@ const PASSWORD = process.env.PASSWORD || "kamesh098";
 Connection(USERNAME,PASSWORD)
 
 const port = process.env.port || 2345;
-app.listen(port, {} , () => {
+app.listen(port, () => {
     console.log(`listening on port ${port}`)
 })

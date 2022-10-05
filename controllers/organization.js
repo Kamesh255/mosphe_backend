@@ -42,8 +42,9 @@ export const organizationData = async (req, res) => {
     try {
         const userData = req.user;
         const userName = userData?.userName;
+        const password = userData?.password;
 
-        const data = await getOrganizationData(userName);
+        const data = await getOrganizationData(userName, password);
 
         if (data instanceof Error) {
             return res.status(401).send(data.message);

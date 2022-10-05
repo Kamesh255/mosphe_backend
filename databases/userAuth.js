@@ -8,3 +8,7 @@ export const createNewUser = async (payload) => {
 export const findUser = async (userName) => {
     return await User.findOne({ userName }).lean();
 }
+
+export const findUserByUserNameAndPassword = async (userName, password) => {
+    return await User.findOne({ userName, password }).lean();
+}

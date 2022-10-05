@@ -1,4 +1,4 @@
-import { createNewUser, findUser } from "../databases/userAuth.js"
+import { createNewUser, findUser, findUserByUserNameAndPassword } from "../databases/userAuth.js"
 import jwt from 'jsonwebtoken';
 import axios from "axios";
 
@@ -13,7 +13,7 @@ export const registerNewUser = async (requestPayload) => {
 }
 
 export const loginOrgUser = async (requestPayload) => {
-    const userdata = await findUser(requestPayload.userName);
+    const userdata = await findUserByUserNameAndPassword(requestPayload.userName, requestPayload.password);
 
     if(!userdata) {
         return new Error('User Does Not Exists')
@@ -22,8 +22,8 @@ export const loginOrgUser = async (requestPayload) => {
     return jwt.sign(userdata, 'secretkey');
 }
 
-export const getOrganizationData = async (userName) => {
-    const userdata = await findUser(userName);
+export const getOrganizationData = async (userName, password) => {
+    const userdata = await findUserByUserNameAndPassword(userName, password);
 
     if(!userdata) {
         return new Error('User Does Not Exists')
